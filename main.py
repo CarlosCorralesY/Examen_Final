@@ -197,8 +197,6 @@ def recordT(raiz):
             simbolos2.append(i)
           list3.clear()
 
-         
-
     if len(simbolos)>0:
       simbolos.remove('ε')
 
@@ -412,7 +410,6 @@ def definir_ensamblador(raiz, arc):
               
       fin_func(t)
       
-
     curr.visitado=True
     for it in reversed(curr.children): 
       nodos.insert(0,it)
@@ -471,8 +468,28 @@ def token_encontrar2(curr, token,val,Visited,stack,padre,var):
   
   for x in curr.children:
     if x.token=="BLOQUE":
-      val=val+1
-      token_encontrar(x, "VAR_DECL",val,Visited,stack,padre,var)
+      
+      nodos=[]
+      nodos.append(x)
+      while(len(nodos)):
+        curr = nodos[0]
+        nodos.pop(0)
+        if curr.token == "IF_STAT" and curr.visitado==False:
+          token_encontrar2(curr, "IF_STAT",val,Visited,stack,padre,var)
+
+        if curr.token == "VAR_DECL" and curr.visitado==False:
+          val=val+1
+          token_encontrar(curr, "VAR_DECL",val,Visited,stack,padre,var)
+
+        if curr.token == "RETURN_STAT":
+          val=val+1
+          a=token_encontrar_2(curr, "RETURN_STAT",val,Visited,stack)
+          obtener_valores_return(a, stack,Visited,val,var)
+
+        if curr.token == "ASSIG_VAR" and curr.visitado==False:
+          val=val+1
+          a=token_encontrar_2(curr, "VAR_DECL",val,Visited,stack)
+          assig_var(a,stack,Visited,val,var)
     elif x.token=="ELSE_STAT":
       break
   
@@ -481,18 +498,36 @@ def token_encontrar2(curr, token,val,Visited,stack,padre,var):
       obtener_valores_else()
       for y in x.children: 
         if y.token=="BLOQUE":
-          val=val+1
-          token_encontrar(y, "VAR_DECL",val,Visited,stack,padre,var)
+          nodos=[]
+          nodos.append(x)
+          while(len(nodos)):
+            curr = nodos[0]
+            nodos.pop(0)
+            if curr.token == "IF_STAT" and curr.visitado==False:
+              token_encontrar2(curr, "IF_STAT",val,Visited,stack,padre,var)
+
+            if curr.token == "VAR_DECL" and curr.visitado==False:
+              val=val+1
+              token_encontrar(curr, "VAR_DECL",val,Visited,stack,padre,var)
+
+            if curr.token == "RETURN_STAT":
+              val=val+1
+              a=token_encontrar_2(curr, "RETURN_STAT",val,Visited,stack)
+              obtener_valores_return(a, stack,Visited,val,var)
+
+            if curr.token == "ASSIG_VAR" and curr.visitado==False:
+              val=val+1
+              a=token_encontrar_2(curr, "VAR_DECL",val,Visited,stack)
+              assig_var(a,stack,Visited,val,var)
   fin_else()
    
   fin_if()
 
 
-
-
 if __name__=='__main__':
   parsing() 
   
+ 
  
 
 
