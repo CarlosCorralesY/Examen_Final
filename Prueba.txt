@@ -1,0 +1,14 @@
+entero f1(entero x){
+  regresa x +10;
+}
+
+pokebola () {
+  entero x1=15+1;
+  si (10>5){
+    entero f2 =5+1;
+  }
+  entonces{
+    entero f3 = 1+6;
+  }
+  x=f1(5);
+}

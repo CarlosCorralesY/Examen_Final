@@ -1,0 +1,38 @@
+,$,main,par_init,par_fin,key_init,key_fin,id,break_line,comma,number,texto,char,true,false,oper_asign,if,else,while,for,return,not,input,break,output,oper_suma,oper_dif,oper_mod,oper_div,oper_mult,oper_identico,oper_diferente,oper_mayor,oper_menor,oper_menorigu,oper_mayorigu,character,boolean,string,integer
+S,,S ::= PROGRAM $,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,S ::= PROGRAM $,S ::= PROGRAM $,S ::= PROGRAM $,S ::= PROGRAM $
+PROGRAM,,PROGRAM ::= FUNCS PRINC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,PROGRAM ::= FUNCS PRINC,PROGRAM ::= FUNCS PRINC,PROGRAM ::= FUNCS PRINC,PROGRAM ::= FUNCS PRINC
+FUNCS,,FUNCS ::= ε,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,FUNCS ::= FUN_DECL FUNCS,FUNCS ::= FUN_DECL FUNCS,FUNCS ::= FUN_DECL FUNCS,FUNCS ::= FUN_DECL FUNCS
+PRINC,,PRINC ::= main par_init par_fin key_init BLOQUE key_fin,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+BLOQUE,,,,,,BLOQUE ::= ε,BLOQUE ::= LINEA LINEAS,,,,,,,,,BLOQUE ::= LINEA LINEAS,,BLOQUE ::= LINEA LINEAS,BLOQUE ::= LINEA LINEAS,BLOQUE ::= LINEA LINEAS,,BLOQUE ::= LINEA LINEAS,BLOQUE ::= LINEA LINEAS,BLOQUE ::= LINEA LINEAS,,,,,,,,,,,,BLOQUE ::= LINEA LINEAS,BLOQUE ::= LINEA LINEAS,BLOQUE ::= LINEA LINEAS,BLOQUE ::= LINEA LINEAS
+LINEAS,,,,,,LINEAS ::= BLOQUE,LINEAS ::= BLOQUE,,,,,,,,,LINEAS ::= BLOQUE,,LINEAS ::= BLOQUE,LINEAS ::= BLOQUE,LINEAS ::= BLOQUE,,LINEAS ::= BLOQUE,LINEAS ::= BLOQUE,LINEAS ::= BLOQUE,,,,,,,,,,,,LINEAS ::= BLOQUE,LINEAS ::= BLOQUE,LINEAS ::= BLOQUE,LINEAS ::= BLOQUE
+LINEA,,,,,,,LINEA ::= ASSIG_VAR,,,,,,,,,LINEA ::= STAT,,LINEA ::= STAT,LINEA ::= STAT,LINEA ::= STAT,,LINEA ::= STAT,LINEA ::= STAT,LINEA ::= STAT,,,,,,,,,,,,LINEA ::= VAR_DECL,LINEA ::= VAR_DECL,LINEA ::= VAR_DECL,LINEA ::= VAR_DECL
+ASSIG_VAR,,,,,,,ASSIG_VAR ::= id ASIGN_STAT break_line,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+FUNC_STAT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+PARAMS,,,,PARAMS ::= ε,,,PARAMS ::= VALOR_PARAM PARAM,,,PARAMS ::= VALOR_PARAM PARAM,PARAMS ::= VALOR_PARAM PARAM,PARAMS ::= VALOR_PARAM PARAM,PARAMS ::= VALOR_PARAM PARAM,PARAMS ::= VALOR_PARAM PARAM,,,,,,,,,,,,,,,,,,,,,,,,,
+PARAM,,,,PARAM ::= ε,,,,,PARAM ::= comma PARAMS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+VALOR_PARAM,,,,,,,VALOR_PARAM ::= id,,,VALOR_PARAM ::= number,VALOR_PARAM ::= texto,VALOR_PARAM ::= char,VALOR_PARAM ::= true,VALOR_PARAM ::= false,,,,,,,,,,,,,,,,,,,,,,,,,
+VAR_DECL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,VAR_DECL ::= TYPE_SPEC id ASIGN_STAT break_line,VAR_DECL ::= TYPE_SPEC id ASIGN_STAT break_line,VAR_DECL ::= TYPE_SPEC id ASIGN_STAT break_line,VAR_DECL ::= TYPE_SPEC id ASIGN_STAT break_line
+FUN_DECL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,FUN_DECL ::= TYPE_SPEC id par_init ARGS par_fin key_init BLOQUE key_fin,FUN_DECL ::= TYPE_SPEC id par_init ARGS par_fin key_init BLOQUE key_fin,FUN_DECL ::= TYPE_SPEC id par_init ARGS par_fin key_init BLOQUE key_fin,FUN_DECL ::= TYPE_SPEC id par_init ARGS par_fin key_init BLOQUE key_fin
+ARGS,,,,ARGS ::= ε,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ARGS ::= TYPE_SPEC id MARGS,ARGS ::= TYPE_SPEC id MARGS,ARGS ::= TYPE_SPEC id MARGS,ARGS ::= TYPE_SPEC id MARGS
+MARGS,,,,MARGS ::= ε,,,,,MARGS ::= comma TYPE_SPEC id MARGS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+ASIGN_STAT,,,,,,,,ASIGN_STAT ::= ε,,,,,,,ASIGN_STAT ::= oper_asign EXPR,,,,,,,,,,,,,,,,,,,,,,,,
+IF_STAT,,,,,,,,,,,,,,,,IF_STAT ::= if par_init NEG LOGIC_EXPR par_fin key_init BLOQUE key_fin ELSE_STAT,,,,,,,,,,,,,,,,,,,,,,,
+WHILE_STAT,,,,,,,,,,,,,,,,,,WHILE_STAT ::= while par_init NEG LOGIC_EXPR par_fin key_init BLOQUE key_fin,,,,,,,,,,,,,,,,,,,,,
+FOR_STAT,,,,,,,,,,,,,,,,,,,FOR_STAT ::= for par_init TYPE_SPEC id oper_asign VALOR_PARAM comma NEG LOGIC_EXPR comma id oper_asign id OP_ARITM number par_fin key_init BLOQUE key_fin,,,,,,,,,,,,,,,,,,,,
+RETURN_STAT,,,,,,,,,,,,,,,,,,,,RETURN_STAT ::= return ORETURN_STAT break_line,,,,,,,,,,,,,,,,,,,
+ORETURN_STAT,,,,,,,ORETURN_STAT ::= EXPR,ORETURN_STAT ::= ε,,ORETURN_STAT ::= EXPR,ORETURN_STAT ::= EXPR,ORETURN_STAT ::= EXPR,ORETURN_STAT ::= EXPR,ORETURN_STAT ::= EXPR,,,,,,,,,,,,,,,,,,,,,,,,,
+NEG,,,,,,,NEG ::= ε,,,NEG ::= ε,NEG ::= ε,NEG ::= ε,NEG ::= ε,NEG ::= ε,,,,,,,NEG ::= not,,,,,,,,,,,,,,,,,,
+INPUT_STAT,,,,,,,,,,,,,,,,,,,,,,INPUT_STAT ::= input par_init id par_fin,,,,,,,,,,,,,,,,,
+BREAK_STAT,,,,,,,,,,,,,,,,,,,,,,,BREAK_STAT ::= break break_line,,,,,,,,,,,,,,,,
+OUT_STAT,,,,,,,,,,,,,,,,,,,,,,,,OUT_STAT ::= output par_init SALIDA par_fin,,,,,,,,,,,,,,,
+SALIDA,,,,,,,SALIDA ::= EXPR,,,SALIDA ::= EXPR,SALIDA ::= EXPR,SALIDA ::= EXPR,SALIDA ::= EXPR,SALIDA ::= EXPR,,,,,,,,,,,,,,,,,,,,,,,,,
+OP_ARITM,,,,,,,,,,,,,,,,,,,,,,,,,OP_ARITM ::= oper_suma,OP_ARITM ::= oper_dif,OP_ARITM ::= oper_mod,OP_ARITM ::= oper_div,OP_ARITM ::= oper_mult,,,,,,,,,,
+OP_LOGIC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,OP_LOGIC ::= oper_identico,OP_LOGIC ::= oper_diferente,OP_LOGIC ::= oper_mayor,OP_LOGIC ::= oper_menor,OP_LOGIC ::= oper_menorigu,OP_LOGIC ::= oper_mayorigu,,,,
+EXPR,,,,,,,EXPR ::= VALOR_PARAM TIP_EXP,,,EXPR ::= VALOR_PARAM TIP_EXP,EXPR ::= VALOR_PARAM TIP_EXP,EXPR ::= VALOR_PARAM TIP_EXP,EXPR ::= VALOR_PARAM TIP_EXP,EXPR ::= VALOR_PARAM TIP_EXP,,,,,,,,,,,,,,,,,,,,,,,,,
+TIP_EXP,,,TIP_EXP ::= par_init PARAMS par_fin,TIP_EXP ::= ARITM_EXPR,,,TIP_EXP ::= LOGIC_EXPR,TIP_EXP ::= ARITM_EXPR,,TIP_EXP ::= LOGIC_EXPR,TIP_EXP ::= LOGIC_EXPR,TIP_EXP ::= LOGIC_EXPR,TIP_EXP ::= LOGIC_EXPR,TIP_EXP ::= LOGIC_EXPR,,,,,,,,,,,TIP_EXP ::= ARITM_EXPR,TIP_EXP ::= ARITM_EXPR,TIP_EXP ::= ARITM_EXPR,TIP_EXP ::= ARITM_EXPR,TIP_EXP ::= ARITM_EXPR,,,,,,,,,,
+ARITM_EXPR,,,,ARITM_EXPR ::= EXP_EXTRA,,,,ARITM_EXPR ::= EXP_EXTRA,,,,,,,,,,,,,,,,,ARITM_EXPR ::= EXP_EXTRA,ARITM_EXPR ::= EXP_EXTRA,ARITM_EXPR ::= EXP_EXTRA,ARITM_EXPR ::= EXP_EXTRA,ARITM_EXPR ::= EXP_EXTRA,,,,,,,,,,
+EXP_EXTRA,,,,EXP_EXTRA ::= ε,,,,EXP_EXTRA ::= ε,,,,,,,,,,,,,,,,,EXP_EXTRA ::= OP_ARITM VALOR_PARAM EXP_EXTRA,EXP_EXTRA ::= OP_ARITM VALOR_PARAM EXP_EXTRA,EXP_EXTRA ::= OP_ARITM VALOR_PARAM EXP_EXTRA,EXP_EXTRA ::= OP_ARITM VALOR_PARAM EXP_EXTRA,EXP_EXTRA ::= OP_ARITM VALOR_PARAM EXP_EXTRA,,,,,,,,,,
+LOGIC_EXPR,,,,,,,LOGIC_EXPR ::= VALOR_PARAM OP_LOGIC VALOR_PARAM,,,LOGIC_EXPR ::= VALOR_PARAM OP_LOGIC VALOR_PARAM,LOGIC_EXPR ::= VALOR_PARAM OP_LOGIC VALOR_PARAM,LOGIC_EXPR ::= VALOR_PARAM OP_LOGIC VALOR_PARAM,LOGIC_EXPR ::= VALOR_PARAM OP_LOGIC VALOR_PARAM,LOGIC_EXPR ::= VALOR_PARAM OP_LOGIC VALOR_PARAM,,,,,,,,,,,,,,,,,,,,,,,,,
+TYPE_SPEC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TYPE_SPEC ::= character,TYPE_SPEC ::= boolean,TYPE_SPEC ::= string,TYPE_SPEC ::= integer
+STAT,,,,,,,,,,,,,,,,STAT ::= IF_STAT,,STAT ::= WHILE_STAT,STAT ::= FOR_STAT,STAT ::= RETURN_STAT,,STAT ::= INPUT_STAT,STAT ::= BREAK_STAT,STAT ::= OUT_STAT,,,,,,,,,,,,,,,
+ELSE_STAT,,,,,,ELSE_STAT ::= ε,,,,,,,,,,,ELSE_STAT ::= else key_init BLOQUE key_fin,,,,,,,,,,,,,,,,,,,,,,
